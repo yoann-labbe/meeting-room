@@ -41,7 +41,9 @@ export default class Picker extends Component {
     value={this.state.date}
      />   
     </div>
-    <button onClick={this.validation}> <Bouton/></button>  
+    <button onClick={this.validation}>
+    <Bouton/>
+    </button>  
     {this.state.showDate ? (
         <div>
            <p>Du : {this.state.date[0].toLocaleDateString()}</p>

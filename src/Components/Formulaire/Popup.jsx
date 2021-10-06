@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   modif: {
     display: "flex",
     justifyContent: "flex-end",
+
   },
 }));
 
@@ -19,8 +20,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function Popupload({ open, handleClose }) {
+export default function Popup({ open, handleClose }) {
   const classes = useStyles();
+
+
   return (
     <div>
       <Dialog
@@ -33,7 +36,7 @@ export default function Popupload({ open, handleClose }) {
       >
         <div className={classes.modif}>
           <DialogActions>
-            <Button onClick={handleClose} color="primary">
+            <Button href="/search" onClick={handleClose} color="primary">
               <CloseIcon />
             </Button>
           </DialogActions>
