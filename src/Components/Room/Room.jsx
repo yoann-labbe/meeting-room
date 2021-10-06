@@ -27,10 +27,11 @@ const Room = () => {
       }}
     >
       {list.map((row) => (
-        <Card>
+        <Card style={{display:"flex", marginBottom:"10px"}}>
           <div
             style={{
               borderTop: "1px solid lightgrey",
+              marginLeft:"30px",
               height: "300px",
               width: "300px",
             }}

@@ -1,9 +1,30 @@
-import { Card } from "@material-ui/core";
+import { Card, TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 import axios from "axios";
 import React, { useState } from "react";
-import Input from "./Input";
+
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    borderRadius: "45px",
+    backgroundColor: "#cf9f25",
+    color: "white",
+    width: "225px",
+    height: "45px",
+    border: "none",
+    outline: "none",
+    shadow: "none",
+    marginTop: "20px",
+    marginBottom: "10px",
+    textTransform: "uppercase",
+    "&:hover": {
+      backgroundColor: "#FFC93C",
+    },
+  },
+}));
 
 export default function Ajout() {
+  const classes = useStyles();
   const [form, setForm] = useState({
     title: "",
     size: "",
@@ -36,60 +57,83 @@ export default function Ajout() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          heigh: "600px",
-          width: "500px",
+          heigh: "800px",
+          width: "600px",
         }}
       >
-        Nom:
-        <Input
+      <h3>Veuillez remplir tous les champs</h3>
+        <TextField
+          style={{marginTop: "5px", marginBottom: "5px", width: "220px"}}
+          id="outlined-basic"
+          label="Nom de la salle" 
+          variant="outlined"
           onChange={handleChange}
           value={form.title}
           name={"title"}
-          placeholder="Nom de la salle"
         />
-        Taille de la salle de réunion:
-        <Input
+
+        <TextField
+          style={{marginBottom: "5px", width: "220px"}}
+          id="outlined-basic"
+          label="Taille de la salle" 
+          variant="outlined"
           onChange={handleChange}
           value={form.size}
           name={"size"}
           placeholder="Taille en mètre carré"
         />
-        Boissons:
-        <Input
+        <TextField
+          style={{marginBottom: "5px", width: "220px"}}
+          id="outlined-basic"
+          label="Boissons" 
+          variant="outlined"
           onChange={handleChange}
           value={form.hotdrink}
           name={"hotdrink"}
-          placeholder="Boissons chaude, froide ou les deux"
+          placeholder="Chaud, froid ou les deux"
         />
-        Objet:
-        <Input
+        <TextField
+          style={{marginBottom: "5px", width: "220px"}}
+          id="outlined-basic"
+          label="Objet" 
+          variant="outlined"
           onChange={handleChange}
           value={form.object}
           name={"object"}
           placeholder="Objet présent dans la salle"
         />
-        Description:
-        <Input
+        <TextField
+          style={{marginBottom: "5px", width: "220px"}}
+          id="outlined-basic"
+          label="Description" 
+          variant="outlined"
           onChange={handleChange}
           value={form.description}
           name={"description"}
-          placeholder="Description"
+          placeholder="Description de la salle"
         />
-        Lieux:
-        <Input
+        <TextField
+          style={{marginBottom: "5px", width: "220px"}}
+          id="outlined-basic"
+          label="Lieux" 
+          variant="outlined"
           onChange={handleChange}
           value={form.place}
           name={"place"}
           placeholder="Lieux"
         />
-        Prix:
-        <Input
+        <TextField
+          style={{marginBottom: "5px", width: "220px"}}
+          id="outlined-basic"
+          label="Prix" 
+          variant="outlined"
           onChange={handleChange}
           value={form.price}
           name={"price"}
           placeholder="Prix de la salle"
         />
-        <button onClick={handleClick}>Valider</button>
+
+        <button className={classes.button} onClick={handleClick}>Valider</button>
       </Card>
     </div>
   );

@@ -1,8 +1,32 @@
 import React from "react";
 import { useState } from "react";
 //import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import { TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      borderRadius: "45px",
+      backgroundColor: "#cf9f25",
+      color: "white",
+      width: "225px",
+      height: "45px",
+      border: "none",
+      outline: "none",
+      shadow: "none",
+      marginTop: "20px",
+      marginBottom: "10px",
+      marginLeft:"50px",
+      textTransform: "uppercase",
+      "&:hover": {
+        backgroundColor: "#FFC93C",
+      },
+    },
+  }));
 
 const ContactForm = () => {
+  const classes = useStyles();
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
@@ -36,11 +60,12 @@ const ContactForm = () => {
     };
 
     if (name && isEmail() && message) {
-      const templateId = "template_aofmtvBG";
+      const templateId = "template_45djblq";
+ 
 
-      nameS.classList.remove("red");
-      emailS.classList.remove("red");
-      messageS.classList.remove("red");
+    //   nameS.classList.remove("red");
+    //   emailS.classList.remove("red");
+    //   messageS.classList.remove("red");
 
       sendFeedback(templateId, {
         name,
@@ -98,76 +123,77 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="contact-form">
-      <h2>Réservation</h2>
-      <div className="form-content">
-      <input
-          type="text"
-          id="company"
-          name="company"
-          onChange={(e) => setCompany(e.target.value)}
-          placeholder="Société"
-          value={company}
+    <div>
+    <form >
+      <h2 style={{ display:"flex", justifyContent:"center"}}>Réservation</h2>
+      
+      <TextField
+      style={{display:"flex", marginBottom: "5px"}}
+        id="outlined-basic"
+        label="Société" 
+        variant="outlined"
+        type="text"
+        onChange={(e) => setCompany(e.target.value)}
+        placeholder="Société"
+        value={company}
         />
 
-        <input
+        <TextField
+        style={{display:"flex", marginBottom: "5px"}}
+          id="outlined-basic"
+          label="Nom" 
+          variant="outlined"
           type="text"
-          id="name"
-          name="name"
           required
           onChange={(e) => setName(e.target.value)}
           placeholder="Nom *"
           value={name}
         />
 
-        <input
+        <TextField
+        style={{display:"flex", marginBottom: "5px"}}
+          id="outlined-basic"
+          label="Téléphone" 
+          variant="outlined"
           type="text"
-          id="phone"
-          name="phone"
           onChange={(e) => setPhone(e.target.value)}
           placeholder="Téléphone"
           value={phone}
         />
+       
         <div className="email-content">
           <label id="not-mail">Email non valide</label>
-          <input
+          <TextField
+          style={{display:"flex", marginBottom: "5px"}}
+            id="outlined-basic"
+            label="Email" 
+            variant="outlined"
             type="mail"
-            id="email"
-            name="email"
             required
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email *"
             value={email}
           />
         </div>
-        <div>
-        {/* <DesktopDatePicker
-          label="For desktop"
-          value={value}
-          minDate={new Date('2017-01-01')}
-          onChange={(newValue) => {
-            setValue(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        /> */}
-      </div>
-        <textarea
-          id="message"
-          name="message"
+        <TextField
+        style={{display:"flex", marginBottom: "5px"}}
+          id="outlined-multiline-static"
+          label="Message"
+          variant="outlined"
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="message *"
+          placeholder="Message *"
           value={message}
           required
         />
-      </div>
-      <input
-        className="button hover"
-        type="submit"
-        value="envoyer"
-        onClick={handleSubmit}
-      />
+      <button className={classes.button} 
+      onClick={handleSubmit}    
+      type="submit"
+      value="envoyer">Envoyer</button>
       <div className="form-message"></div>
+
     </form>
+   
+    </div>
   );
 };
 
