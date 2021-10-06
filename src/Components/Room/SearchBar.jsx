@@ -9,6 +9,7 @@ export default function SearchBar() {
   const [options, setOptions] = React.useState([]);
   const [keyword, setKeyword] = React.useState("");
   const router = useHistory();
+ 
 
  useEffect(() => {
       axios.get(
@@ -48,60 +49,13 @@ export default function SearchBar() {
             InputProps={{
               ...params.InputProps,
             }}
+            
           />
 
         )}
+        
       />
-  
     </div>
+    
   );
 }
-// import axios from 'axios';
-// import React, { useEffect, useState } from 'react';
-
-
-// function SearchBar() {
-// const [datas, setDatas] = useState([]);
-// const [searchTerm, setSearchTerm] = useState("");
-// const [keyword, setKeyword] = React.useState("");
-
-//  useEffect(() => {
-//       axios.get(
-//         `http://localhost:3031/room?keyword=${keyword}"`)
-//         .then((response) => response.data)
-//         .then((data) => {
-//             setDatas(data);
-//         });
-//     }, []);
-
-//     const handleSearchTerm = (e) => {
-//         let value = e.target.value;
-//         setSearchTerm(value);
-//     }
-
-//     return (
-//         <div>
-//          <input
-//          type="text"
-//          name="searchBar"
-//          id="searchBar"
-//          placeholder="rechercher"
-//          onChange={handleSearchTerm} 
-//          />
-//          <div>
-//           {datas.filter((val) =>{
-//               return val.title.toLowerCase().includes(searchTerm.toLowerCase());
-//           })
-//           .map((val) => {
-//               return(
-//                   <div key={val.id}>
-//                       {val.title}
-//                   </div>
-//               );
-//           })}   
-//         </div>  
-//         </div>
-//     );
-// }
-
-// export default SearchBar;

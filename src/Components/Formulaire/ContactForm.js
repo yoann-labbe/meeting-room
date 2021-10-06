@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-//import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
@@ -61,13 +60,14 @@ const ContactForm = () => {
 
     if (name && isEmail() && message) {
       const templateId = "template_45djblq";
+      const serviceID = "gmail";
  
 
     //   nameS.classList.remove("red");
     //   emailS.classList.remove("red");
     //   messageS.classList.remove("red");
 
-      sendFeedback(templateId, {
+      sendFeedback(serviceID, templateId, {
         name,
         company,
         phone,
@@ -91,11 +91,11 @@ const ContactForm = () => {
     }
   };
 
-  const sendFeedback = (templateId, variables) => {
+  const sendFeedback = (serviceID, templateId, variables) => {
     let formMess = document.querySelector(".form-message");
 
     window.emailjs
-      .send("gmail", templateId, variables)
+      .send(serviceID, templateId, variables)
       .then((res) => {
         formMess.innerHTML =
           "Message envoyé ! ";

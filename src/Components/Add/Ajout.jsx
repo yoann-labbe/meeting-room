@@ -58,10 +58,10 @@ export default function Ajout() {
           flexDirection: "column",
           alignItems: "center",
           heigh: "800px",
-          width: "600px",
+          width: "400px",
         }}
       >
-      <h3>Veuillez remplir tous les champs</h3>
+      <h3 style={{fontFamily:"fantasy"}}>Veuillez remplir tous les champs</h3>
         <TextField
           style={{marginTop: "5px", marginBottom: "5px", width: "220px"}}
           id="outlined-basic"
@@ -133,7 +133,7 @@ export default function Ajout() {
           placeholder="Prix de la salle"
         />
 
-        <button className={classes.button} onClick={handleClick}>Valider</button>
+        <button href="/ajout" className={classes.button} onClick={handleClick}>Valider</button>
       </Card>
     </div>
   );

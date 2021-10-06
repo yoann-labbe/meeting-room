@@ -1,12 +1,11 @@
 import './App.css';
 import React from "react";
-// import Navbar from './Components/Navigation/Navbar';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from './Components/Navigation/Main';
 import Ajout from './Components/Add/Ajout';
 import RoomList from './Components/Room/RoomList';
 import Background from './Components/Navigation/Background';
-// import Picker from './Components/Calendar/Picker';
+
 
 
 
@@ -23,6 +22,7 @@ export default function App() {
         <Route exact path="/ajout" component={Ajout} /> 
       </Switch>
     </Router>
+    
     </div>
   );
 }
